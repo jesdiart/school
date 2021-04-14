@@ -6,6 +6,14 @@ class User < ApplicationRecord
   
   validates :first_name, presence: true
   validates :last_name, presence: true
+  
+  def active_for_authentication? 
+    super && approved? 
+  end 
+  
+  def inactive_message 
+    approved? ? super : :not_approved
+  end
 
   def full_name
     first_name + " " + last_name
