@@ -1,3 +1,18 @@
 = render "header"
 
+h1 Welcome!
+p Welcome to the Springfield Elementary School site.
+
+div style="float:left; width:34%;"
+  h1 Students
+  p #{link_to "Register", new_student_registration_path} as a Student
+
+div style="float:left; width:33%;"
+  h1 Teachers
+  p #{link_to "Register", new_teacher_registration_path} as a Teacher
+
+div style="float:left; width:33%;"
+  h1 Administrators
+  p #{link_to "Register", new_administrator_registration_path} as an Administrator
+
 
