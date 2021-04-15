@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Roles
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -8,11 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(user)
-    if user.type == 'Administrator'
-      administrator_path user
-    else
-      root_path
-    end
+    home_path_for user
   end
 
 

@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
+  include Roles
+
   def index
     if current_user
-      if current_user.type == 'Administrator'
-        redirect_to administrator_path current_user
-      end
+      redirect_to home_path_for current_user
     end
   end
+
 end
