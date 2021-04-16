@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   devise_for :administrators, :teachers, :students, :skip => :sessions
 
   resources :administrators, only: [:show]
+  resources :teachers, only: [:show]
+  resources :students, only: [:show]
 end
