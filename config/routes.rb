@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :sessions => 'sessions' }
   devise_for :administrators, :teachers, :students, :skip => :sessions
 
+  resources :users, only: [:approve] do 
+    patch 'approve', on: :member
+  end
   resources :administrators, only: [:show]
   resources :teachers, only: [:show]
   resources :students, only: [:show]

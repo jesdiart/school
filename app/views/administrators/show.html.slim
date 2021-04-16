@@ -30,5 +30,5 @@ div style="float:left; width:50%;"
         tr 
           td #{pending_approvals.full_name} 
           td style="text-align: center;" #{pending_approvals.type} 
-          td style="text-align: center;" Approve
+          td style="text-align: center;" #{link_to "Approve", approve_user_path(pending_approvals), method: :patch, data: { confirm: "Are you sure?" }}
   
