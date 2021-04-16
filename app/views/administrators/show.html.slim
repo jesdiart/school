@@ -1,3 +1,34 @@
 = render "home/header"
 
-h1 #{@administrator.full_name}
+h1 Dashboard
+h2 #{@administrator.full_name}
+p Email: #{@administrator.email}
+
+hr 
+
+div style="float:left; width:50%;"
+  h2 Teachers
+  - unless @teachers.empty?
+    table border = "1"
+      tr 
+        th Name 
+        th Students' performance 
+      - @teachers.each do |teacher|
+        tr
+          td #{teacher.full_name} 
+          td -
+
+div style="float:left; width:50%;"
+  h2 Pending approvals
+  - unless @pending_approvals.empty?
+    table border = "1" style="width:75%"
+      tr 
+        th Name 
+        th Role 
+        th Approval
+      - @pending_approvals.each do |pending_approvals|
+        tr 
+          td #{pending_approvals.full_name} 
+          td style="text-align: center;" #{pending_approvals.type} 
+          td style="text-align: center;" Approve
+  
