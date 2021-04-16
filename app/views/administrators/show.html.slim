@@ -9,14 +9,14 @@ hr
 div style="float:left; width:50%;"
   h2 Teachers
   - unless @teachers.empty?
-    table border = "1"
+    table border = "1" style="width:60%"
       tr 
-        th Name 
-        th Students' performance 
+        th style="width:70%" Name 
+        th style="width:30%" Students' performance 
       - @teachers.each do |teacher|
         tr
           td #{teacher.full_name} 
-          td -
+          td style="text-align: center;" -
 
 div style="float:left; width:50%;"
   h2 Pending approvals
