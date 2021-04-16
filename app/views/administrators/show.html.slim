@@ -1,8 +1,7 @@
 = render "home/header"
 
 h1 Dashboard
-h2 #{@administrator.full_name}
-p Email: #{@administrator.email}
+= render "users/profile", user: @administrator
 
 hr 
 
