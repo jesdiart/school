@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   # https://stackoverflow.com/questions/5690406/rails-using-devise-with-single-table-inheritance
   devise_for :users, :controllers => { :sessions => 'sessions' }
-  devise_for :administrators, :teachers, :students, :skip => :sessions
+  devise_for :administrators, :teachers, :students, :skip => :sessions, :controllers => { :registrations => 'registrations' }
 
   resources :users, only: [:approve] do 
     patch 'approve', on: :member
