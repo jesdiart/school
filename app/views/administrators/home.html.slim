@@ -14,7 +14,7 @@ div style="float:left; width:34%;"
         th style="width:30%" Teachers 
       - @subjects.each do |subject|
         tr
-          td #{subject.name} 
+          td = link_to subject.name, subject
           td style="text-align: center;" -
   br/
   p #{link_to "Add new Subject", new_subject_path}
@@ -28,7 +28,7 @@ div style="float:left; width:33%;"
         th style="width:30%" Students' performance 
       - @teachers.each do |teacher|
         tr
-          td #{teacher.full_name} 
+          td = link_to teacher.full_name, teacher
           td style="text-align: center;" -
   br/
   p #{link_to "Add new Teacher", new_teacher_registration_path}
@@ -41,9 +41,9 @@ div style="float:left; width:33%;"
         th Name 
         th Role 
         th Approval
-      - @pending_approvals.each do |pending_approvals|
+      - @pending_approvals.each do |pending_approval|
         tr 
-          td #{pending_approvals.full_name} 
-          td style="text-align: center;" #{pending_approvals.type} 
-          td style="text-align: center;" #{link_to "Approve", approve_user_path(pending_approvals), method: :patch, data: { confirm: "Are you sure?" }}
+          td = link_to pending_approval.full_name, pending_approval
+          td style="text-align: center;" #{pending_approval.type} 
+          td style="text-align: center;" #{link_to "Approve", approve_user_path(pending_approval), method: :patch, data: { confirm: "Are you sure?" }}
   
