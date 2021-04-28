@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
 
   def show
-    @teacher = Teacher.find(params[:id])
+    @teacher = authorize Teacher.find(params[:id])
   end
 
 end
