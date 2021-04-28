@@ -18,5 +18,8 @@ Rails.application.routes.draw do
     get 'home', on: :member
   end 
 
-  resources :subjects
+  resources :subjects do 
+    resources :seminars
+  end
+  
 end
