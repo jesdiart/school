@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Devise Mailer URL
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Allow requests from subdomains from ngrok
+  config.hosts << /.*\.ngrok\.io/
 end
