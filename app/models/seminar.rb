@@ -1,5 +1,4 @@
 class Seminar < ApplicationRecord
     belongs_to :subject
-    belongs_to :teacher, foreign_key: 'user_id'
-    
+    belongs_to :user, foreign_key: 'teacher_id'  
 end

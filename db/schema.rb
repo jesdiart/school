@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_04_28_113255) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id"], name: "index_seminars_on_subject_id"
-    t.index ["teacher_id"], name: "index_seminars_on_teacher_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -45,5 +44,4 @@ ActiveRecord::Schema.define(version: 2021_04_28_113255) do
   end
 
   add_foreign_key "seminars", "subjects"
-  add_foreign_key "seminars", "teachers"
 end
