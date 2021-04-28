@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :administrators, only: [:show]
   resources :teachers, only: [:show]
   resources :students, only: [:show]
+
+  resources :subjects
 end

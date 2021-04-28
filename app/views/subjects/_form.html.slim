@@ -1,0 +1,20 @@
+= form_with model: subject do |form|
+
+  div
+    = form.label :name 
+    br
+    = form.text_field :name 
+    br  
+      - subject.errors.full_messages_for(:name).each do |message| 
+        div = message 
+
+  div
+    = form.label :description 
+    br
+    = form.text_area :description 
+    br  
+      - subject.errors.full_messages_for(:name).each do |message| 
+        div = message 
+  
+  div
+    = form.submit 

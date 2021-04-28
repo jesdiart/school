@@ -5,7 +5,21 @@ h1 Dashboard
 
 hr 
 
-div style="float:left; width:50%;"
+div style="float:left; width:34%;"
+  h2 Subjects
+  - unless @subjects.empty?
+  table border = "1" style="width:60%"
+      tr 
+        th style="width:70%" Name 
+        th style="width:30%" Teachers 
+      - @subjects.each do |subject|
+        tr
+          td #{subject.name} 
+          td style="text-align: center;" -
+  br/
+  p #{link_to "Add new Subject", new_subject_path}
+
+div style="float:left; width:33%;"
   h2 Teachers
   - unless @teachers.empty?
     table border = "1" style="width:60%"
@@ -19,7 +33,7 @@ div style="float:left; width:50%;"
   br/
   p #{link_to "Add new Teacher", new_teacher_registration_path}
 
-div style="float:left; width:50%;"
+div style="float:left; width:33%;"
   h2 Pending approvals
   - unless @pending_approvals.empty?
     table border = "1" style="width:75%"
