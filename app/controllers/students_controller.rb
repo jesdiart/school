@@ -4,4 +4,8 @@ class StudentsController < ApplicationController
     @student = authorize Student.find(params[:id])
   end
 
+  def home
+    @student = authorize Student.find(params[:id])
+  end
+
 end

@@ -10,4 +10,8 @@ class TeacherPolicy < ApplicationPolicy
   def show?
     is_admin? user or (is_teacher? user and user == @teacher)
   end
+
+  def home?
+    user == @teacher
+  end
 end

@@ -10,4 +10,8 @@ class AdministratorPolicy < ApplicationPolicy
   def show?
     is_admin? user
   end
+
+  def home?
+    user == @administrator
+  end
 end

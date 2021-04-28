@@ -15,11 +15,11 @@ module Roles
   def home_path_for(user)
     if user
       if is_admin? user
-        administrator_path user
+        home_administrator_path user
       elsif is_teacher? user
-        teacher_path user
+        home_teacher_path user
       elsif is_student? user
-        student_path user
+        home_student_path user
       else
         root_path
       end

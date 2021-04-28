@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   resources :users, only: [:approve] do 
     patch 'approve', on: :member
   end
-  resources :administrators, only: [:show]
-  resources :teachers, only: [:show]
-  resources :students, only: [:show]
+  resources :administrators, only: [:show] do 
+    get 'home', on: :member
+  end 
+  resources :teachers, only: [:show] do 
+    get 'home', on: :member
+  end 
+  resources :students, only: [:show] do 
+    get 'home', on: :member
+  end 
 
   resources :subjects
 end

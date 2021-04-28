@@ -1,0 +1,49 @@
+= render "home/header"
+
+h1 Dashboard
+= render "users/profile", user: @administrator
+
+hr 
+
+div style="float:left; width:34%;"
+  h2 Subjects
+  - unless @subjects.empty?
+  table border = "1" style="width:60%"
+      tr 
+        th style="width:70%" Name 
+        th style="width:30%" Teachers 
+      - @subjects.each do |subject|
+        tr
+          td #{subject.name} 
+          td style="text-align: center;" -
+  br/
+  p #{link_to "Add new Subject", new_subject_path}
+
+div style="float:left; width:33%;"
+  h2 Teachers
+  - unless @teachers.empty?
+    table border = "1" style="width:60%"
+      tr 
+        th style="width:70%" Name 
+        th style="width:30%" Students' performance 
+      - @teachers.each do |teacher|
+        tr
+          td #{teacher.full_name} 
+          td style="text-align: center;" -
+  br/
+  p #{link_to "Add new Teacher", new_teacher_registration_path}
+
+div style="float:left; width:33%;"
+  h2 Pending approvals
+  - unless @pending_approvals.empty?
+    table border = "1" style="width:75%"
+      tr 
+        th Name 
+        th Role 
+        th Approval
+      - @pending_approvals.each do |pending_approvals|
+        tr 
+          td #{pending_approvals.full_name} 
+          td style="text-align: center;" #{pending_approvals.type} 
+          td style="text-align: center;" #{link_to "Approve", approve_user_path(pending_approvals), method: :patch, data: { confirm: "Are you sure?" }}
+  
