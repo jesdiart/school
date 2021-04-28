@@ -1,19 +1,19 @@
 class SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all
+    @subjects = authorize Subject.all
   end
 
   def show
-    @subject = Subject.find(params[:id])
+    @subject = authorize Subject.find(params[:id])
   end
 
   def new
-    @subject = Subject.new
+    @subject = authorize Subject.new
   end
 
   def create
-    @subject = Subject.new(subject_params)
+    @subject = authorize Subject.new(subject_params)
     
     if @subject.save
       redirect_to @subject
