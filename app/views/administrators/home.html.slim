@@ -10,12 +10,12 @@ div style="float:left; width:34%;"
   - unless @subjects.empty?
   table border = "1" style="width:60%"
       tr 
-        th style="width:70%" Name 
-        th style="width:30%" Teachers 
+        th style="width:60%" Name 
+        th style="width:40%" Teachers 
       - @subjects.each do |subject|
         tr
           td = link_to subject.name, subject
-          td style="text-align: center;" -
+          td style="text-align: center;" = subject.teachers.count
   br/
   p #{link_to "Add new Subject", new_subject_path}
 
