@@ -5,14 +5,14 @@ class SeminarsController < ApplicationController
   end
 
   def new
-    @subject = authorize Subject.find(params[:subject_id])
+    @subject = Subject.find(params[:subject_id])
     @teachers = Teacher.left_outer_joins(:seminars).where(seminars: {subject_id: nil}).or(Teacher.left_outer_joins(:seminars).where.not(seminars: {subject_id: params[:subject_id]}))
-    @seminar = Seminar.new
+    @seminar = authorize Seminar.new
   end
 
   def create
-    @subject = authorize Subject.find(params[:subject_id])
-    @seminar = @subject.seminars.create(seminar_params)
+    @subject = Subject.find(params[:subject_id])
+    @seminar = authorize @subject.seminars.create(seminar_params)
     
     if @seminar.save!
       redirect_to @subject
