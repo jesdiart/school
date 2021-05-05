@@ -9,3 +9,10 @@ h2 Teachers
 - else 
   = render "teachers/list", teachers: @subject.teachers
 p #{link_to "Add Teacher", new_subject_seminar_path(@subject)}
+
+h2 Students 
+- if @subject.attendees.empty? 
+  p There are no students for this subject yet
+- else 
+  = render "students/list", students: @subject.students
+p #{link_to "Add Student", new_subject_attendee_path(@subject)}

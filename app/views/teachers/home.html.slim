@@ -10,4 +10,14 @@ div
   - unless @teacher.seminars.empty?
     - @teacher.seminars.each do |seminar|
       h3 = link_to seminar.subject.name, seminar.subject
+      - unless seminar.subject.attendees.empty?
+        h4 Students
+        table border = "1" style="width:60%"
+          tr 
+            th style="width:60%" Name 
+            th style="width:40%" Students 
+          - seminar.subject.students.each do |student|
+            tr
+              td = link_to student.full_name, student
+              td style="text-align: center;" -
   br/

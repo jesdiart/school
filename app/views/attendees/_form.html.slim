@@ -1,0 +1,9 @@
+= form_with model: [ @subject, @attendee ] do |form|
+
+  div 
+    p Select the student:
+    = collection_select :attendee, :student_id, @students, :id, :full_name, prompt: true 
+  br /
+
+  div
+    = form.submit 
