@@ -4,3 +4,10 @@ h1 Dashboard
 = render "users/profile", user: @teacher
 
 hr 
+
+div
+  h2 Subjects
+  - unless @teacher.seminars.empty?
+    - @teacher.seminars.each do |seminar|
+      h3 = link_to seminar.subject.name, seminar.subject
+  br/
