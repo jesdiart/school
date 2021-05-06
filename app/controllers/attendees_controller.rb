@@ -6,7 +6,8 @@ class AttendeesController < ApplicationController
 
   def new
     @subject = Subject.find(params[:subject_id])
-    @students = Student.left_outer_joins(:attendees).where(attendees: {subject_id: nil}).or(Student.left_outer_joins(:attendees).where.not(attendees: {subject_id: params[:subject_id]}))
+    student_ids = Attendee.where(subject: @subject).pluck(:student_id)
+    @students = Student.where.not(id: student_ids)
     @attendee = authorize Attendee.new
   end
 

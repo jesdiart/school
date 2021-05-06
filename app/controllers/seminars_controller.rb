@@ -6,7 +6,8 @@ class SeminarsController < ApplicationController
 
   def new
     @subject = Subject.find(params[:subject_id])
-    @teachers = Teacher.left_outer_joins(:seminars).where(seminars: {subject_id: nil}).or(Teacher.left_outer_joins(:seminars).where.not(seminars: {subject_id: params[:subject_id]}))
+    teacher_ids = Seminar.where(subject: @subject).pluck(:teacher_id)
+    @teachers = Teacher.where.not(id: teacher_ids)
     @seminar = authorize Seminar.new
   end
 
