@@ -1,4 +1,5 @@
 class SubjectsController < ApplicationController
+  include Roles
 
   def index
     @subjects = authorize Subject.all
@@ -6,6 +7,9 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = authorize Subject.find(params[:id])
+    @show_add_teacher = is_admin? current_user
+    @show_add_test = is_teacher? current_user
+    @show_add_student = is_teacher? current_user
   end
 
   def new

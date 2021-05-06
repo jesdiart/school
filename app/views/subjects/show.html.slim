@@ -10,7 +10,7 @@ div style="float:left; width:33%;"
     p There are no teachers for this subject yet
   - else 
     = render "teachers/list", teachers: @subject.teachers
-  - if current_user.type == 'Administrator' # FIXME include module or pass roles to user model?
+  - if @show_add_teacher
     p #{link_to "Add Teacher", new_subject_seminar_path(@subject)}
 
 
@@ -20,7 +20,7 @@ div style="float:left; width:34%;"
     p There are no tests for this subject yet
   - else 
     = render "tests/list", tests: @subject.tests
-  - if current_user.type == 'Teacher' # FIXME include module or pass roles to user model?
+  - if @show_add_test
     p #{link_to "Add Test", new_subject_test_path(@subject)}
 
 div style="float:left; width:33%;"
@@ -29,5 +29,5 @@ div style="float:left; width:33%;"
     p There are no students for this subject yet
   - else 
     = render "students/list", students: @subject.students
-  - if current_user.type == 'Teacher' # FIXME include module or pass roles to user model?
+  - if @show_add_student
     p #{link_to "Add Student", new_subject_attendee_path(@subject)}
