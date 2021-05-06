@@ -15,7 +15,7 @@ div
         table border = "1" style="width:60%"
           tr 
             th style="width:60%" Name 
-            th style="width:40%" Students 
+            th style="width:40%" Students' performance  
           - seminar.subject.students.each do |student|
             tr
               td = link_to student.full_name, student
