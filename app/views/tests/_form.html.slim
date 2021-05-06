@@ -1,0 +1,12 @@
+= form_with model: [ @subject, @test ] do |form|
+
+  div
+    = form.label :name 
+    br
+    = form.text_field :name 
+    br  
+      - test.errors.full_messages_for(:name).each do |message| 
+        div = message 
+  
+  div
+    = form.submit 

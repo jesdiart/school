@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :subjects do 
     resources :seminars
     resources :attendees
+    resources :tests
   end
   
 end
