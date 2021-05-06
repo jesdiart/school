@@ -1,9 +1,5 @@
 class AttendeesController < ApplicationController
 
-  def show
-    @subject = authorize Subject.find(params[:id])
-  end
-
   def new
     @subject = Subject.find(params[:subject_id])
     student_ids = Attendee.where(subject: @subject).pluck(:student_id)

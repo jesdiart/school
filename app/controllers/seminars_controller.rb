@@ -1,9 +1,5 @@
 class SeminarsController < ApplicationController
 
-  def show
-    @subject = authorize Subject.find(params[:id])
-  end
-
   def new
     @subject = Subject.find(params[:subject_id])
     teacher_ids = Seminar.where(subject: @subject).pluck(:teacher_id)
