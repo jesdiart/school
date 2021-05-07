@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test: one
+  student_id: 1
+  teacher_id: 1
+  mark: 1.5
+
+two:
+  test: two
+  student_id: 1
+  teacher_id: 1
+  mark: 1.5
