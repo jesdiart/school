@@ -28,4 +28,12 @@ module Roles
     end
   end
 
+  def teaches_subject?(teacher, subject)
+    Seminar.where(subject: subject).pluck(:teacher_id).include? user.id
+  end 
+
+  def attends_subject?(student, subject)
+    Attendee.where(subject: subject).pluck(:student_id).include? user.id
+  end
+
 end

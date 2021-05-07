@@ -11,9 +11,9 @@ class TestPolicy < ApplicationPolicy
     if is_admin? user
       true
     elsif is_teacher? user
-      Seminar.where(subject: @test.subject).pluck(:teacher_id).include? user.id
+      teaches_subject? user, @test.subject
     elsif is_student? user
-      Attendee.where(subject: @test.subject).pluck(:student_id).include? user.id
+      attends_subject? user, @test.subject
     else 
       false
     end
