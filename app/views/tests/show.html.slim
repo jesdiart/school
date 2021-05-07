@@ -1,3 +1,15 @@
 = render "home/header"
 
 h1 #{@test.subject.name} - #{@test.name}
+
+h2 Students
+- unless @test.subject.students.empty?
+table border = "1" style="width:30%"
+  tr 
+    th style="width:70%" Name 
+    th style="width:30%" Mark 
+  - @test.subject.students.each do |student|
+    tr
+      td = link_to student.full_name, student
+      td style="text-align: center;" = @results[student.id].nil? ? "-" : @results[student.id].mark
+br/

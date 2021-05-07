@@ -3,6 +3,8 @@ class TestsController < ApplicationController
   def show
     @subject = Subject.find(params[:subject_id])
     @test = authorize Test.find(params[:id])
+    @students = @subject.students
+    @results = Result.where(test: params[:id]).index_by(&:student_id)
   end
 
   def new
