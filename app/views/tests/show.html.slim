@@ -11,5 +11,9 @@ table border = "1" style="width:30%"
   - @test.subject.students.each do |student|
     tr
       td = link_to student.full_name, student
-      td style="text-align: center;" = @results[student.id].nil? ? "-" : @results[student.id].mark
+      td style="text-align: center;" 
+        - if @results[student.id].nil?
+          = link_to "Set result", new_subject_test_result_path(@subject, @test, student_id: student)
+        - else 
+          = @results[student.id].mark
 br/

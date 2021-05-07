@@ -1,0 +1,14 @@
+= form_with model: [ @subject, @test, @test.results.build ] do |form|
+
+  div
+    = form.label :mark 
+    br
+    = form.number_field :mark, step: :any
+    br  
+      - result.errors.full_messages_for(:mark).each do |message| 
+        div = message 
+
+  = form.hidden_field :student_id, :value => params[:student_id]
+  
+  div
+    = form.submit 
