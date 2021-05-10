@@ -29,7 +29,7 @@ div style="float:left; width:33%;"
       - @teachers.each do |teacher|
         tr
           td = link_to teacher.full_name, teacher
-          td style="text-align: center;" -
+          td style="text-align: center;" = teacher.students_performance.nil? ? "-" : teacher.students_performance.round(2)
   br/
   p #{link_to "Add new Teacher", new_teacher_registration_path}
 
