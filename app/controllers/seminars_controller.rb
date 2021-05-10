@@ -3,7 +3,7 @@ class SeminarsController < ApplicationController
   def new
     @subject = Subject.find(params[:subject_id])
     teacher_ids = Seminar.where(subject: @subject).pluck(:teacher_id)
-    @teachers = Teacher.where.not(id: teacher_ids)
+    @teachers = Teacher.where.not(id: teacher_ids).and(Teacher.where(approved: true))
     @seminar = authorize Seminar.new
   end
 
