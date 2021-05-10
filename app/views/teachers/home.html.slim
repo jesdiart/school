@@ -19,6 +19,7 @@ div
           - seminar.subject.students.each do |student|
             tr
               td = link_to student.full_name, student
-              td style="text-align: center;" -
+              td style="text-align: center;" 
+                = student.performance_subject(seminar.subject).nil? ? "-" : student.performance_subject(seminar.subject).round(2)
       p #{link_to "Add Student", new_subject_attendee_path(seminar.subject)}
   br/
